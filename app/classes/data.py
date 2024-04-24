@@ -54,7 +54,7 @@ class User(UserMixin, Document):
 
 class Role(RoleMixin, Document):
     # The RoleMixin requires this field to be named "name"
-    name = StringField()
+    name = StringField(unique=True)
 
 # To require a role for a specific route use this decorator
 # @require_role(role="student")
@@ -113,4 +113,18 @@ class Clinic(Document):
     
     meta = {
         'ordering': ['-createdate']
+    }
+
+
+# Events are items that are displayed on the calendar.  The fields are very simple and
+# and can easily be changed to add other information that you want. 
+class Event(Document):
+    # All events have 'owners' which are a referencefield connected to the User document
+    owner = ReferenceField(User)
+    title = StringField()
+    desc = StringField()
+    date = DateTimeField()
+
+    meta = {
+        'ordering': ['+date']
     }

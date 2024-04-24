@@ -5,7 +5,7 @@
 from flask_wtf import FlaskForm
 import mongoengine.errors
 from wtforms.validators import URL, Email, DataRequired
-from wtforms import StringField, SubmitField, TextAreaField, IntegerField, SelectField, FileField, BooleanField, URLField
+from wtforms import StringField, SubmitField, TextAreaField, IntegerField, SelectField, FileField, BooleanField, URLField, DateField, TimeField
 
 class ProfileForm(FlaskForm):
     fname = StringField('First Name', validators=[DataRequired()])
@@ -31,3 +31,11 @@ class ClinicForm(FlaskForm):
     zipcode = StringField('Zipcode',validators=[DataRequired()])
     description = StringField('Description', validators=[DataRequired()])
     submit = SubmitField('Submit')
+
+class EventForm(FlaskForm):
+    title = StringField("Title")
+    desc = StringField("Description")
+    # There are a lot of ways to record an manage date and time.  The way I have here is the easiest to understand
+    date = DateField("Date", format='%Y-%m-%d')
+    time = TimeField("Time")
+    submit = SubmitField("Submit")

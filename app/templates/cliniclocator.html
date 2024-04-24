@@ -10,7 +10,7 @@
 <script type="text/javascript">
     // The first parameter are the coordinates of the center of the map
     // The second parameter is the zoom level
-    var map = L.map('map').setView([37.8323039, -122.2575883], 13);
+    var map = L.map('map').setView([37.7616604, -122.1956785], 12);
     
     // {s}, {z}, {x} and {y} are placeholders for map tiles
     // {x} and {y} are the x/y of where you are on the map
@@ -33,7 +33,7 @@
         {% endif %}
     {% endfor %}
     // this is a way to add a marker that ALWAYS shows up.
-    L.marker([37.8323039, -122.2575883]).addTo(map).bindPopup("<strong>Oakland Tech</strong>").openPopup();
+    L.marker([37.7616604, -122.1956785]).addTo(map).bindPopup("<strong>CCPA</strong>").openPopup();
 
 
 </script>
